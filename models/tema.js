@@ -9,7 +9,7 @@ const getTemas = () => {
 }
 
 const getTemaId=(id)=> {
-    tema_encontrado=temas.find(tema => tema.id === id )
+    const tema_encontrado=temas.find(tema => tema.id === id )
     return tema_encontrado
 }
 
@@ -17,4 +17,4 @@ const crearTema=(tema)=> {
     temas.push(tema)
 }
 
-module.exports={temas}
+module.exports={getTemas,getTemaId,crearTema}
