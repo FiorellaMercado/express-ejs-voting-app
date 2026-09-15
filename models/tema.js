@@ -1,7 +1,4 @@
-const temas = [
-  { id: 1, nombre: "ciencias", votos: 0, enlaces: [] },
-  { id: 2, nombre: "literatura", votos: 0, enlaces: [] }
-];
+const temas = []
 
 
 const getTemas = () => {
@@ -13,7 +10,10 @@ const getTemaId=(id)=> {
     return tema_encontrado
 }
 
-const crearTema=(tema)=> {
+const crearTema=(nombre)=> {
+    //id pseudo incremental
+    const pseudo_id=temas.length+1;
+    const tema={id:pseudo_id, nombre: nombre, votos:0, enlaces:[]}
     temas.push(tema)
 }
 
