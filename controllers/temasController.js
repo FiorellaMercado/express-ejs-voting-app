@@ -1,9 +1,15 @@
-const {getTemas} = require('../models/tema')
+const model = require('../models/tema')
 
 
 const listarTemas = (req, res)=> {
-    const temas= getTemas()
+    const temas= model.getTemas()
     res.render('temas',{temas})
 }
 
-module.exports = listarTemas
+const crearNuevoTema =(req, res)=> {
+    const nombre = req.body['nombre']
+    model.crearTema(nombre)
+    res.redirect('/temas/listarTemas')
+}
+
+module.exports = { listarTemas, crearNuevoTema}
