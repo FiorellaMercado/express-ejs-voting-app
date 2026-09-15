@@ -1,7 +1,9 @@
 const express=require('express');
 const router=express.Router();
-const listarTemas= require('../controllers/temasController')
+const model= require('../controllers/temasController')
 
-router.get('/listarTemas', listarTemas);
+router.get('/listarTemas', model.listarTemas);
+
+router.post('/crearTema', model.crearNuevoTema);
 
 module.exports=router
