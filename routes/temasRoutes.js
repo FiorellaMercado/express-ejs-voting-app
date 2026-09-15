@@ -6,4 +6,6 @@ router.get('/listarTemas', controller.listarTemas);
 
 router.post('/crearTema', controller.crearNuevoTema);
 
+router.post('/eliminarTema/:id',controller.eliminarTema)
+
 module.exports=router

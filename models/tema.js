@@ -17,4 +17,9 @@ const crearTema=(nombre)=> {
     temas.push(tema)
 }
 
-module.exports={getTemas,getTemaId,crearTema}
+const deleteTemaId = (id)=> {
+    const indice=temas.findIndex(tema => tema.id === id)
+    temas.splice(indice, 1)
+}
+
+module.exports={getTemas,getTemaId,crearTema, deleteTemaId}

@@ -12,4 +12,10 @@ const crearNuevoTema =(req, res)=> {
     res.redirect('/temas/listarTemas')
 }
 
-module.exports = { listarTemas, crearNuevoTema}
+const eliminarTema = (req, res)=> {
+    const id = req.params.id
+    model.deleteTemaId(id)
+    res.redirect('/temas/listarTemas')
+}
+
+module.exports = { listarTemas, crearNuevoTema, eliminarTema}

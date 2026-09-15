@@ -17,6 +17,11 @@
         <% temas.forEach(tema => { %>
         <li>
             <%= tema.nombre %> : <%= tema.votos%> 
+            <form action="/temas/eliminarTema/<%= tema.id%>" method="POST">
+                <button>
+                    Eliminar
+                </button>
+            </form> 
         </li>
         <% }); %>
     </ul>
