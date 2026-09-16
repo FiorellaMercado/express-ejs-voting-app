@@ -47,7 +47,13 @@ const eliminarEnlace = (req, res) => {
     res.redirect('/temas/listarTemas')
 }
 
+const traerElnace = (req,res => {
+    const idEnlace=req.params.idEnlace
+    const idTema=req.params.idTema
+    const enlace= model.getEnlaceId(idTema,idEnlace)
+    res.render('editarEnlace', enlace )
+})
 
 module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema,
-    crearEnlace, eliminarEnlace
+    crearEnlace, eliminarEnlace, traerElnace
 }

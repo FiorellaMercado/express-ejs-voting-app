@@ -47,8 +47,17 @@ const deleteEnlace = (idTema, idEnlace)=>{
     enlaces.splice(indice,1)
 }
 
+const actualizarEnlace = (idTema, idEnlace,enlace)
+
+const getEnlaceId = (idTema, idEnlace) => {
+    const enlaces=getEnlaces(idTema)
+    const indice=enlaces.findIndex(enlace => enlace.id === parseInt(idEnlace))
+    return enlaces[indice].enlace
+
+}
+
 
 
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
-    getEnlaces, createEnlace, deleteEnlace
+    getEnlaces, getEnlaceId, createEnlace, deleteEnlace
 }
