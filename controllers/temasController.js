@@ -63,6 +63,19 @@ const actualizarEnlace = (req,res) => {
 
 }
 
+const votarTema =(req,res)=>{
+    const idTema= req.params.idTema
+    model.votarTema(idTema)
+    res.redirect('/temas/listarTemas')
+}
+
+const votarEnlace = (req,res)=>{
+    const idTema=req.params.idTema
+    const idEnlace=req.params.idEnlace
+    model.votarEnlace(idTema,idEnlace)
+    res.redirect('/temas/listarTemas')
+}
 module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema,
-    crearEnlace, eliminarEnlace, traerEnlace, actualizarEnlace
+    crearEnlace, eliminarEnlace, traerEnlace, actualizarEnlace,
+    votarTema, votarEnlace
 }

@@ -60,9 +60,20 @@ const getEnlaceId = (idTema, idEnlace) => {
     return enlaces[indice]
 
 }
+// votos
 
+const votarTema = (idTema)=>{
+    const tema= getTemaId(idTema)
+    tema.votos= tema.votos+1
+}
+const votarEnlace=(idTema,idEnlace)=>{
+    const enlace=getEnlaceId(idTema,idEnlace)
+    enlace.votos=enlace.votos+1
+
+}
 
 
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
-    getEnlaces, getEnlaceId, createEnlace, deleteEnlace, updateEnlace
+    getEnlaces, getEnlaceId, createEnlace, deleteEnlace, updateEnlace,
+    votarTema, votarEnlace
 }

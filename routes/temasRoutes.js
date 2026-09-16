@@ -18,6 +18,9 @@ router.post('/crearEnlace/:id', controller.crearEnlace)
 router.post('/eliminarEnlace/tema/:idTema/enlace/:idEnlace', controller.eliminarEnlace)
 router.get('/traerEnlace/tema/:idTema/enlace/:idEnlace', controller.traerEnlace)
 router.post('/actualizarEnlace/tema/:idTema/enlace/:idEnlace', controller.actualizarEnlace)
+router.post('/votarTema/:idTema', controller.votarTema)
+router.post('/votarEnlace/tema/:idTema/enlace/:idEnlace', controller.votarEnlace)
+
 
 
 module.exports=router
