@@ -1,4 +1,6 @@
-const temas = [{id:1, nombre:'Ciencias', votos:0, enlaces:['ahddfdsk','akwer']}]
+const temas = [{id:1, nombre:'Ciencias', votos:0, enlaces:[
+    {id:1, enlace: 'akldf', votos: 0}
+]}]
 
 //CRUD temas
 const getTemas = () => {
@@ -35,11 +37,18 @@ const getEnlaces = (idTema) => {
 
 const createEnlace = (idTema,nuevo_enlace) => {
     const enlaces= getEnlaces(idTema)
-    return enlaces.push(nuevo_enlace)
+    const pseudo_id= enlaces.length+1
+    const enlace={id: pseudo_id, enlace: nuevo_enlace, votos: 0}
+    return enlaces.push(enlace)
+}
+const deleteEnlace = (idTema, idEnlace)=>{
+    const enlaces = getEnlaces(idTema)
+    const indice = enlaces.findIndex(enlace=> enlace.id===parseInt(idEnlace))
+    enlaces.splice(indice,1)
 }
 
 
 
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
-    getEnlaces, createEnlace
+    getEnlaces, createEnlace, deleteEnlace
 }

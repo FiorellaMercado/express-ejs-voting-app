@@ -31,7 +31,10 @@
             <ul>
                 <% tema.enlaces.forEach(enlace => { %>
                     <li>
-                        <%= enlace %>
+                        <%= enlace.enlace %> Votos: <%= enlace.votos %>
+                        <form action="/temas/eliminarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
+                            <button>Eliminar</button>
+                        </form>
                     </li>
                     
                 <% }); %>
