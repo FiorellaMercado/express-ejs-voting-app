@@ -6,7 +6,7 @@ const getTemas = () => {
 }
 
 const getTemaId=(id)=> {
-    const tema_encontrado=temas.find(tema => tema.id === id )
+    const tema_encontrado=temas.find(tema => tema.id === parseInt(id) )
     return tema_encontrado
 }
 
@@ -18,8 +18,13 @@ const crearTema=(nombre)=> {
 }
 
 const deleteTemaId = (id)=> {
-    const indice=temas.findIndex(tema => tema.id === id)
+    const indice=temas.findIndex(tema => tema.id === parseInt(id))
     temas.splice(indice, 1)
 }
 
-module.exports={getTemas,getTemaId,crearTema, deleteTemaId}
+const updateTema=(nombre, id)=>{
+    const indice= temas.findIndex(tema => tema.id === parseInt(id))
+    temas[indice].nombre=nombre
+}
+
+module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema}

@@ -8,4 +8,10 @@ router.post('/crearTema', controller.crearNuevoTema);
 
 router.post('/eliminarTema/:id',controller.eliminarTema)
 
+router.get('/traerTema/:id', controller.traerTema)
+
+router.post('/actualizarTema/:id', controller.actualizarTema)
+
+
+
 module.exports=router

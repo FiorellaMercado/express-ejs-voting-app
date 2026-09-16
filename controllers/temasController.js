@@ -18,4 +18,18 @@ const eliminarTema = (req, res)=> {
     res.redirect('/temas/listarTemas')
 }
 
-module.exports = { listarTemas, crearNuevoTema, eliminarTema}
+const traerTema = (req, res )=>{
+    const id=req.params.id
+    const tema = model.getTemaId(id)
+    const nombre = tema['nombre']
+    res.render('editarTema', {nombre: nombre, id: id})
+}
+
+const actualizarTema =(req,res) => {
+    const nombre = req.body['nombre']
+    const id = req.params.id
+    model.updateTema(nombre, id)
+    res.redirect('/temas/listarTemas')
+}
+
+module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema}
