@@ -79,7 +79,9 @@ const votarEnlace = (req,res)=>{
     const idTema=req.params.idTema
     const idEnlace=req.params.idEnlace
     model.votarEnlace(idTema,idEnlace)
-    res.redirect('/temas/listarTemas')
+    const enlace=model.getEnlaceId(idTema,idEnlace)
+    res.json({ votos: enlace.votos})
+    //res.redirect('/temas/listarTemas')
 }
 module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema,
     crearEnlace, eliminarEnlace, traerEnlace, actualizarEnlace,

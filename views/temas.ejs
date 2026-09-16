@@ -40,7 +40,10 @@
             <ul>
                 <% tema.enlaces.forEach(enlace => { %>
                     <li>
-                        <%= enlace.enlace %> Votos: <%= enlace.votos %>
+                        <%= enlace.enlace %> Votos: 
+                        <span id="votos-enlace-<%= enlace.id%>">
+                            <%= enlace.votos %>
+                        </span>
                         <form action="/temas/eliminarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
                             <button>Eliminar</button>
                         </form>
@@ -49,9 +52,10 @@
                             <button>Editar</button>
                         </form>
 
-                        <form action="/temas/votarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
+                        <!-- <form action="/temas/votarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
                             <button>Votar</button>
-                        </form>
+                        </form> -->
+                        <button class="btn-votar-enlace" data-tema-id="<%= tema.id%>" data-enlace-id="<%= enlace.id%>">Votar</button>
                     </li>
                     
                 <% }); %>

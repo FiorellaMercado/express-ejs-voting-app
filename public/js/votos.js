@@ -10,3 +10,18 @@ document.querySelectorAll('.btn-votar-tema').forEach(btn => {
             });
     });
 });
+
+
+document.querySelectorAll('.btn-votar-enlace').forEach(btn =>{
+    btn.addEventListener('click',()=>{
+        const idTema = btn.dataset.temaId;
+        const idEnlace = btn.dataset.enlaceId;
+        console.log(idEnlace)
+        fetch(`/temas/votarEnlace/tema/${idTema}/enlace/${idEnlace}`, {method:'POST'})
+            .then(res => res.json())
+            .then(data => {
+                console.log(data.votos)
+                document.getElementById(`votos-enlace-${idEnlace}`).textContent = data.votos;
+            });
+    });
+});
