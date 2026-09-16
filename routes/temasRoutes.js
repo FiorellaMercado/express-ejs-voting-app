@@ -16,7 +16,8 @@ router.post('/actualizarTema/:id', controller.actualizarTema)
 
 router.post('/crearEnlace/:id', controller.crearEnlace)
 router.post('/eliminarEnlace/tema/:idTema/enlace/:idEnlace', controller.eliminarEnlace)
-router.get('/traerEnlace/tema/:idTema/enlace/:idEnlace')
+router.get('/traerEnlace/tema/:idTema/enlace/:idEnlace', controller.traerEnlace)
+router.post('/actualizarEnlace/tema/:idTema/enlace/:idEnlace', controller.actualizarEnlace)
 
 
 module.exports=router

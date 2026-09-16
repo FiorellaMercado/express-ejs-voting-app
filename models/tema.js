@@ -47,17 +47,22 @@ const deleteEnlace = (idTema, idEnlace)=>{
     enlaces.splice(indice,1)
 }
 
-const actualizarEnlace = (idTema, idEnlace,enlace)
+// enlace aqui es un string que viene del input
+const updateEnlace = (idTema, idEnlace,str_enlace) => {
+    const enlace=getEnlaceId(idTema,idEnlace)
+    enlace.enlace=str_enlace
+    
+}
 
 const getEnlaceId = (idTema, idEnlace) => {
     const enlaces=getEnlaces(idTema)
     const indice=enlaces.findIndex(enlace => enlace.id === parseInt(idEnlace))
-    return enlaces[indice].enlace
+    return enlaces[indice]
 
 }
 
 
 
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
-    getEnlaces, getEnlaceId, createEnlace, deleteEnlace
+    getEnlaces, getEnlaceId, createEnlace, deleteEnlace, updateEnlace
 }

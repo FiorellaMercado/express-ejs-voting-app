@@ -35,6 +35,10 @@
                         <form action="/temas/eliminarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
                             <button>Eliminar</button>
                         </form>
+                        
+                        <form action="/temas/traerEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="GET">
+                            <button>Editar</button>
+                        </form>
                     </li>
                     
                 <% }); %>
