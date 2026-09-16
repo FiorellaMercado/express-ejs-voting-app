@@ -33,6 +33,13 @@ const getEnlaces = (idTema) => {
     return tema_encontrado.enlaces
 }
 
+const createEnlace = (idTema,nuevo_enlace) => {
+    const enlaces= getEnlaces(idTema)
+    return enlaces.push(nuevo_enlace)
+}
+
+
+
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
-    getEnlaces
+    getEnlaces, createEnlace
 }

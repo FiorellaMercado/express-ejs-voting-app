@@ -14,7 +14,7 @@ router.post('/actualizarTema/:id', controller.actualizarTema)
 
 //enlaces
 
-router.get('/listarEnlaces/:id', controller.listarEnlaces)
+router.post('/crearEnlace/:id', controller.crearEnlace)
 
 
 
