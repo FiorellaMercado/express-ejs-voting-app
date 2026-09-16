@@ -16,12 +16,16 @@
     <ul>
         <% temas.forEach(tema => { %>
         <li>
-            <%= tema.nombre %> : <%= tema.votos%> 
-            <form action="/temas/votarTema/<%= tema.id%>" method="POST">
+            <%= tema.nombre %> : 
+            <span id="votos-tema-<%= tema.id %>">
+                <%= tema.votos %>
+            </span>
+            <!-- <form action="/temas/votarTema/<%= tema.id%>" method="POST">
                 <button>
                     Votar
                 </button>
-            </form> 
+            </form> -->
+            <button class="btn-votar-tema" data-tema-id="<%= tema.id %>">Votar</button>
             <form action="/temas/eliminarTema/<%= tema.id%>" method="POST">
                 <button>
                     Eliminar
@@ -61,5 +65,7 @@
         
         <% }); %>
     </ul>
+
+    <script src="/js/votos.js"></script>
 </body>
 </html>

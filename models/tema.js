@@ -32,7 +32,8 @@ const updateTema=(nombre, id)=>{
 // CRUD enlaces
 const getEnlaces = (idTema) => {
     const tema_encontrado=temas.find(tema=>tema.id === parseInt(idTema))
-    return tema_encontrado.enlaces
+    const enlaces= tema_encontrado.enlaces
+    return enlaces
 }
 
 const createEnlace = (idTema,nuevo_enlace) => {

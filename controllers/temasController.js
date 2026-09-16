@@ -3,6 +3,10 @@ const model = require('../models/tema')
 
 const listarTemas = (req, res)=> {
     const temas= model.getTemas()
+    temas.sort((a, b) => b.votos - a.votos)
+    temas.forEach(tema => {
+        tema.enlaces.sort((a, b) => b.votos - a.votos)
+    })
     res.render('temas',{temas})
 }
 
@@ -66,7 +70,9 @@ const actualizarEnlace = (req,res) => {
 const votarTema =(req,res)=>{
     const idTema= req.params.idTema
     model.votarTema(idTema)
-    res.redirect('/temas/listarTemas')
+    //res.redirect('/temas/listarTemas')
+    const tema = model.getTemaId(idTema)
+    res.json({ votos: tema.votos })
 }
 
 const votarEnlace = (req,res)=>{
