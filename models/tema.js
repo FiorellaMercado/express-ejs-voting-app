@@ -1,6 +1,6 @@
-const temas = []
+const temas = [{id:1, nombre:'Ciencias', votos:0, enlaces:['ahddfdsk','akwer']}]
 
-
+//CRUD temas
 const getTemas = () => {
     return temas
 }
@@ -27,4 +27,12 @@ const updateTema=(nombre, id)=>{
     temas[indice].nombre=nombre
 }
 
-module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema}
+// CRUD enlaces
+const getEnlaces = (idTema) => {
+    const tema_encontrado=temas.find(tema=>tema.id === parseInt(idTema))
+    return tema_encontrado.enlaces
+}
+
+module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
+    getEnlaces
+}

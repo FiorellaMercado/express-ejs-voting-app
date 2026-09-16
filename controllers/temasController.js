@@ -32,4 +32,15 @@ const actualizarTema =(req,res) => {
     res.redirect('/temas/listarTemas')
 }
 
-module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema}
+//Enlaces controladores
+
+const listarEnlaces = (req,res) => {
+    const idTema=req.params.id
+    const enlaces=model.getEnlaces(idTema)
+    res.render('temas',{enlaces})
+}
+
+
+module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema,
+    listarEnlaces
+}

@@ -12,6 +12,10 @@ router.get('/traerTema/:id', controller.traerTema)
 
 router.post('/actualizarTema/:id', controller.actualizarTema)
 
+//enlaces
+
+router.get('/listarEnlaces/:id', controller.listarEnlaces)
+
 
 
 module.exports=router

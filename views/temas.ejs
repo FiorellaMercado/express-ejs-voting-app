@@ -27,6 +27,16 @@
                     Editar
                 </button>
             </form>
+            Enlaces:
+            <ul>
+                <% tema.enlaces.forEach(enlace => { %>
+                    <li>
+                        <%= enlace %>
+                    </li>
+                    
+                <% }); %>
+                
+            </ul>
         </li>
         <% }); %>
     </ul>
