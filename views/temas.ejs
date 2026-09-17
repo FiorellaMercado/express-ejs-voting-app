@@ -13,9 +13,9 @@
 
     </form>
 
-    <ul>
+    <ul class="lista-tema">
         <% temas.forEach(tema => { %>
-        <li>
+        <li class="li-temas" data-votos="<%= tema.votos%>"  data-tema-id="<%= tema.id %>">
             <%= tema.nombre %> : 
             <span id="votos-tema-<%= tema.id %>">
                 <%= tema.votos %>
@@ -37,9 +37,9 @@
                 </button>
             </form>
             Enlaces:
-            <ul>
+            <ul class="lista-enlace" data-tema-id="<%= tema.id%>">
                 <% tema.enlaces.forEach(enlace => { %>
-                    <li>
+                    <li class="li-enlace" data-votos="<%= enlace.votos%>" data-enlace-id="<%= enlace.id %>">
                         <%= enlace.enlace %> Votos: 
                         <span id="votos-enlace-<%= enlace.id%>">
                             <%= enlace.votos %>
