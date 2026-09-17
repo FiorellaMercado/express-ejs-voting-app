@@ -1,8 +1,8 @@
-const temas = [{id:1, nombre:'Ciencias', votos:0, enlaces:[
-    {id:1, enlace: 'akldf', votos: 0}
-]}]
+const temas = []
 
 //CRUD temas
+
+//read
 const getTemas = () => {
     return temas
 }
@@ -12,18 +12,21 @@ const getTemaId=(id)=> {
     return tema_encontrado
 }
 
+//create
 const crearTema=(nombre)=> {
-    //id pseudo incremental
+    //id incremental
     const pseudo_id=temas.length+1;
     const tema={id:pseudo_id, nombre: nombre, votos:0, enlaces:[]}
     temas.push(tema)
 }
 
+//delte
 const deleteTemaId = (id)=> {
     const indice=temas.findIndex(tema => tema.id === parseInt(id))
     temas.splice(indice, 1)
 }
 
+//update
 const updateTema=(nombre, id)=>{
     const indice= temas.findIndex(tema => tema.id === parseInt(id))
     temas[indice].nombre=nombre
@@ -61,6 +64,7 @@ const getEnlaceId = (idTema, idEnlace) => {
     return enlaces[indice]
 
 }
+
 // votos
 
 const votarTema = (idTema)=>{
@@ -73,7 +77,7 @@ const votarEnlace=(idTema,idEnlace)=>{
 
 }
 
-
+// exportar lo que voy a usar en controller
 module.exports={getTemas,getTemaId,crearTema, deleteTemaId, updateTema,
     getEnlaces, getEnlaceId, createEnlace, deleteEnlace, updateEnlace,
     votarTema, votarEnlace

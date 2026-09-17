@@ -4,8 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Temas</title>
+    <!-- agregar tailwind -->
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
+<style>
+    .botones-acciones {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+</style>
 <body>
+    
+    <h1>Votación de Temas</h1>
+    <!-- Formulario para crear tema -->
+    <h3>Crear tema:</h3>
     <form action="/temas/crearTema" method="POST">
         <label>Nombre: </label>
         <input type="text" name="nombre" required>
@@ -13,6 +26,8 @@
 
     </form>
 
+    <!-- Lista de Temas -->
+    <h2>Lista de temas:</h2>
     <ul class="lista-tema">
         <% temas.forEach(tema => { %>
         <li class="li-temas" data-votos="<%= tema.votos%>"  data-tema-id="<%= tema.id %>">
@@ -25,18 +40,26 @@
                     Votar
                 </button>
             </form> -->
-            <button class="btn-votar-tema" data-tema-id="<%= tema.id %>">Votar</button>
-            <form action="/temas/eliminarTema/<%= tema.id%>" method="POST">
-                <button>
-                    Eliminar
-                </button>
-            </form> 
-            <form action="/temas/traerTema/<%= tema.id%>" method="GET">
-                <button>
-                    Editar
-                </button>
+            <div class="botones-acciones">
+                <button class="btn-votar-tema" data-tema-id="<%= tema.id %>">Votar</button>
+                <form action="/temas/eliminarTema/<%= tema.id%>" method="POST">
+                    <button>
+                        Eliminar
+                    </button>
+                </form> 
+                <form action="/temas/traerTema/<%= tema.id%>" method="GET">
+                    <button>
+                        Editar
+                    </button>
+                </form>
+            </div>
+            <h3>Crear Enlace:</h3>
+            <form action="/temas/crearEnlace/<%= tema.id %>" method="POST">
+                <input type="text" name="enlace" required>
+                <button type="submit">Guardar</button>
             </form>
-            Enlaces:
+            <!-- Lista de Enlaces -->
+            <h3>Enlaces:</h3>
             <ul class="lista-enlace" data-tema-id="<%= tema.id%>">
                 <% tema.enlaces.forEach(enlace => { %>
                     <li class="li-enlace" data-votos="<%= enlace.votos%>" data-enlace-id="<%= enlace.id %>">
@@ -44,27 +67,27 @@
                         <span id="votos-enlace-<%= enlace.id%>">
                             <%= enlace.votos %>
                         </span>
-                        <form action="/temas/eliminarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
-                            <button>Eliminar</button>
-                        </form>
-                        
-                        <form action="/temas/traerEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="GET">
-                            <button>Editar</button>
-                        </form>
+                        <div class="botones-acciones">
+                            <form action="/temas/eliminarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
+                                <button>Eliminar</button>
+                            </form>
+                            
+                            <form action="/temas/traerEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="GET">
+                                <button>Editar</button>
+                            </form>
 
-                        <!-- <form action="/temas/votarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
-                            <button>Votar</button>
-                        </form> -->
-                        <button class="btn-votar-enlace" data-tema-id="<%= tema.id%>" data-enlace-id="<%= enlace.id%>">Votar</button>
+                            <!-- <form action="/temas/votarEnlace/tema/<%= tema.id %>/enlace/<%= enlace.id %>" method="POST">
+                                <button>Votar</button>
+                            </form> -->
+                            <button class="btn-votar-enlace" data-tema-id="<%= tema.id%>" data-enlace-id="<%= enlace.id%>">Votar</button>
+                        </div>
                     </li>
                     
                 <% }); %>
                 
             </ul>
-            <form action="/temas/crearEnlace/<%= tema.id %>" method="POST">
-                <input type="text" name="enlace" required>
-                <button type="submit">Guardar</button>
-            </form>
+                
+            
         </li>
         
         <% }); %>

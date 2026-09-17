@@ -1,6 +1,7 @@
 const model = require('../models/tema')
 
-
+//req trae el body o parametros del url
+//res permite enviar renderizar datos a una vista o reedireccionar a otro url
 const listarTemas = (req, res)=> {
     const temas= model.getTemas()
     temas.sort((a, b) => b.votos - a.votos)
@@ -83,6 +84,7 @@ const votarEnlace = (req,res)=>{
     res.json({ votos: enlace.votos})
     //res.redirect('/temas/listarTemas')
 }
+
 module.exports = { listarTemas, crearNuevoTema, eliminarTema, traerTema, actualizarTema,
     crearEnlace, eliminarEnlace, traerEnlace, actualizarEnlace,
     votarTema, votarEnlace
